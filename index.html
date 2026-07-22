@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f5ebe5" />
+  <title>A Birthday Surprise</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="floating-hearts" aria-hidden="true"></div>
+
+  <main id="app">
+    <!-- 1. PASSWORD SCREEN -->
+    <section id="password-screen" class="screen active">
+      <div class="glass-card password-card">
+        <span class="eyebrow">A little surprise for you</span>
+        <h1>Enter Our Special Date</h1>
+        <p class="muted">Use the date that started our story.</p>
+
+        <form id="password-form" autocomplete="off">
+          <label class="sr-only" for="password-input">Password</label>
+          <input
+            id="password-input"
+            type="text"
+            inputmode="decimal"
+            placeholder="DD.MM.YYYY"
+            maxlength="10"
+            aria-describedby="password-message"
+          />
+          <button class="primary-btn" type="submit">Open my surprise ♡</button>
+          <p id="password-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. MAIL SCREEN -->
+    <section id="mail-screen" class="screen">
+      <div class="mail-wrapper">
+        <span class="eyebrow">Something arrived for you</span>
+        <h2>You got mail!</h2>
+        <p class="muted">Tap the envelope to open it.</p>
+
+        <button id="envelope-button" class="envelope-button" aria-label="Open the envelope">
+          <div class="envelope">
+            <div class="envelope-back"></div>
+            <div class="letter-preview">For You ♡</div>
+            <div class="envelope-front"></div>
+            <div class="envelope-flap"></div>
+            <span class="heart-seal">♥</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <!-- 3. LETTER SCREEN -->
+    
+  <section id="letter-screen" class="screen scroll-screen">
+    <div class="message-showcase">
+
+      <div class="message-text-side">
+        <span class="eyebrow">ONLY FOR YOU</span>
+
+        <h2 class="message-title">Message For You</h2>
+
+        <p class="message-paragraph">
+          Happy birthday to my first and forever love.
+          Happy birthday to the most beautiful part of my life.
+        </p>
+
+        <p class="message-paragraph">
+          No matter how much we argue or how far apart we may become,
+          you will always mean just as much to me.
+          I will always love you.
+        </p>
+
+        <p class="message-paragraph">
+          I love you more than words can say,
+          and I could never imagine my life without you.
+          I truly hope we stay together forever.
+          May God always keep you in my life, my love.
+        </p>
+
+        <p class="message-paragraph">
+          You are my one and only.
+          I know I can be a lot sometimes and probably drive you crazy,
+          but I swear I love you so much.
+        </p>
+
+        <p class="message-paragraph">
+          Thank you for every time you sacrificed for me
+          and for every time you tried to make me happy.
+        </p>
+
+        <p class="message-paragraph">
+          I hope I always get to see you becoming the happiest,
+          most successful, and most amazing person in the world.
+        </p>
+
+        <p class="message-sign">Forever yours ♡</p>
+
+        <button id="see-gifts" class="primary-btn" type="button">
+          Open Your Gifts
+        </button>
+      </div>
+
+      <div class="message-photos-side">
+
+        <div class="photo-stack photo-top">
+          <img src="photo-4.jpeg" alt="Our memory">
+        </div>
+
+        <div class="photo-stack photo-bottom">
+          <img src="photo-5.jpeg" alt="Our memory">
+        </div>
+
+        <button
+          class="message-record-button"
+          type="button"
+          data-modal="memories-modal"
+          aria-label="Open memories and play our song"
+        >
+          <span class="message-record-disc">
+            <span class="message-record-center">♡</span>
+          </span>
+        </button>
+
+        <span class="message-record-note">click me ♪</span>
+      </div>
+
+    </div>
+  </section>
+
+
+    <!-- 4. GIFTS SCREEN -->
+    <section id="gifts-screen" class="screen scroll-screen">
+      <div class="gifts-container">
+        <span class="eyebrow">Made with love</span>
+        <h2>Gifts Just For You!</h2>
+        <p class="muted">Tap each gift to discover a little surprise.</p>
+
+        <div class="gift-grid">
+          <button class="gift-card" data-modal="memories-modal">
+            <span class="gift-icon">📷</span>
+            <strong>Memories</strong>
+            <small>Our photos with your song</small>
+          </button>
+
+          <button class="gift-card" data-modal="cake-modal">
+            <span class="gift-icon">🎂</span>
+            <strong>Birthday Wish</strong>
+            <small>A wish made only for you</small>
+          </button>
+
+          <button class="gift-card" data-modal="surprise-modal">
+            <span class="gift-icon">🎁</span>
+            <strong>Surprise</strong>
+            <small>One more thing from my heart</small>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MEMORIES MODAL -->
+  <div id="memories-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel gallery-panel">
+      <button class="close-modal" aria-label="Close">×</button>
+      <div class="gallery-heading">
+        <span class="eyebrow">Our little story</span>
+        <h2>Favorite Memories</h2>
+        <p>Music starts from 1:23 when you open this gift.</p>
+      </div>
+
+      <div class="photo-stage">
+        <button id="prev-photo" class="gallery-arrow" aria-label="Previous photo">‹</button>
+        <figure class="main-photo-frame">
+          <img id="main-photo" src="photo-1.jpeg" alt="Our memory" />
+          <figcaption id="photo-caption">A moment worth keeping forever ♡</figcaption>
+        </figure>
+        <button id="next-photo" class="gallery-arrow" aria-label="Next photo">›</button>
+      </div>
+
+      <div id="photo-dots" class="photo-dots" aria-label="Photo navigation"></div>
+
+      <div class="music-box">
+        <button id="record-button" class="record-button" type="button" aria-label="Play our song">
+          <span class="record-disc">
+            <span class="record-label">♡</span>
+          </span>
+          <span id="music-toggle-text">Tap the record to play our song</span>
+        </button>
+
+        <p id="music-status">The song will begin from 1:23 ♪</p>
+
+        <audio id="birthday-audio" preload="auto" src="song.mp3"></audio>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAKE MODAL -->
+  <div id="cake-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel small-panel celebration-panel">
+      <button class="close-modal" aria-label="Close">×</button>
+      <div class="cake-animation" aria-hidden="true">🎂</div>
+      <h2>Make a Wish!</h2>
+      <p>
+        I hope this year brings you happiness, peace, success, and everything your heart
+        has been wishing for. You deserve the most beautiful life.
+      </p>
+      <button id="blow-candles" class="primary-btn">Blow the candles ✨</button>
+      <div id="confetti-container" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- SURPRISE MODAL -->
+  <div id="surprise-modal" class="modal" aria-hidden="true">
+    <div class="modal-panel small-panel childhood-panel">
+      <button class="close-modal" aria-label="Close">×</button>
+      <span class="eyebrow">The sweetest beginning</span>
+      <h2>My Favorite Birthday Boy</h2>
+      <div class="childhood-frame">
+        <img src="childhood.jpeg" alt="A childhood photo of the birthday boy" />
+      </div>
+      <p>
+        The little boy in this picture grew into the person who means the whole world to me.
+        I hope your smile always stays this pure and beautiful.
+      </p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
